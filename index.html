@@ -1,22 +1,81 @@
 <!DOCTYPE html>
-<html>
- <head>
-  <meta charset="utf-8">
-  <title>Кнопка</title>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LazyCat Studios — Privacy Policies</title>
   <style>
-   .btn {
-    display: inline-block; /* Строчно-блочный элемент */
-    background: #8C959D; /* Серый цвет фона */
-    color: #fff; /* Белый цвет текста */
-    padding: 1rem 1.5rem; /* Поля вокруг текста */
-    text-decoration: none; /* Убираем подчёркивание */
-    border-radius: 3px; /* Скругляем уголки */
-   }
+    :root {
+      --bg: #f4f6f8;
+      --card-bg: #ffffff;
+      --btn-bg: #2d3748;
+      --btn-hover: #4a5568;
+      --text: #1a202c;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 1rem;
+    }
+
+    .container {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: block;
+      background: var(--btn-bg);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.9rem 1.2rem;
+      border-radius: 8px;
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      transition: background 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--btn-hover);
+    }
+
+    footer {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: #718096;
+    }
   </style>
- </head>
- <body> 
-  <a href="https://lazycatstud.github.io/pp-apps" class="btn">Privacy Policy - apps</a>
-  <a href="https://lazycatstud.github.io/pp-whistle" class="btn">Privacy Policy - whistle</a>
-  <a href="https://lazycatstud.github.io/pp-clap" class= "btn">Privacy Policy - clap</a>
- </body>
+</head>
+<body>
+  <div class="container">
+    <h1>LazyCat Studios</h1>
+
+    <a href="https://lazycatstud.github.io/pp-apps" class="btn">Privacy Policy — Apps</a>
+    <a href="https://lazycatstud.github.io/pp-whistle" class="btn">Privacy Policy — Whistle</a>
+    <a href="https://lazycatstud.github.io/pp-clap" class="btn">Privacy Policy — Clap</a>
+
+    <footer>© 2025 LazyCat Studios</footer>
+  </div>
+</body>
 </html>
