@@ -1,81 +1,81 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LazyCat Studios — Privacy Policies</title>
-  <style>
-    :root {
-      --bg: #f4f6f8;
-      --card-bg: #ffffff;
-      --btn-bg: #2d3748;
-      --btn-hover: #4a5568;
-      --text: #1a202c;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 1rem;
-    }
-
-    .container {
-      background: var(--card-bg);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-      max-width: 400px;
-      width: 100%;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .btn {
-      display: block;
-      background: var(--btn-bg);
-      color: #fff;
-      text-decoration: none;
-      padding: 0.9rem 1.2rem;
-      border-radius: 8px;
-      margin: 0.5rem 0;
-      font-size: 1rem;
-      transition: background 0.2s ease;
-    }
-
-    .btn:hover {
-      background: var(--btn-hover);
-    }
-
-    footer {
-      margin-top: 1.5rem;
-      font-size: 0.85rem;
-      color: #718096;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1e1e2e">
+  <title>LazyCat Studios</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>LazyCat Studios</h1>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__brand">LazyCat Studios</a>
+    </div>
+  </header>
 
-    <a href="https://lazycatstud.github.io/pp-apps" class="btn">Privacy Policy — Apps</a>
-    <a href="https://lazycatstud.github.io/pp-whistle" class="btn">Privacy Policy — Whistle</a>
-    <a href="https://lazycatstud.github.io/pp-clap" class="btn">Privacy Policy — Clap</a>
+  <main class="page-wrapper">
+    <div class="hero">
+      <div class="hero__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5a.75.75 0 01.75.75V7.5h-1.5V2.25A.75.75 0 0112 1.5zM11.25 7.5v1.933a3.75 3.75 0 102.5 0V7.5h4.5A2.25 2.25 0 0120.5 9.75v8.5a2.25 2.25 0 01-2.25 2.25H5.75A2.25 2.25 0 013.5 18.25v-8.5A2.25 2.25 0 015.75 7.5h5.5zM9 15a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0z"/></svg>
+      </div>
+      <h1 class="hero__title">LazyCat Studios</h1>
+      <p class="hero__subtitle">Privacy Policies &amp; Terms of Service for our mobile applications</p>
+    </div>
 
-    <footer>© 2025 LazyCat Studios</footer>
-  </div>
+    <div class="apps-grid">
+
+      <div class="app-card">
+        <div class="app-card__name">Apps (General)</div>
+        <div class="app-card__links">
+          <a href="pp-apps/" class="app-card__link">Privacy Policy</a>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-card__name">Whistle</div>
+        <div class="app-card__links">
+          <a href="whistle/privacy-policy/" class="app-card__link">Privacy Policy</a>
+          <a href="whistle/terms-of-service/" class="app-card__link">Terms of Service</a>
+          <a href="pp-whistle/" class="app-card__link">Privacy Policy (legacy)</a>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-card__name">Clap</div>
+        <div class="app-card__links">
+          <a href="clap/privacy-policy/" class="app-card__link">Privacy Policy</a>
+          <a href="clap/terms-of-service/" class="app-card__link">Terms of Service</a>
+          <a href="pp-clap/" class="app-card__link">Privacy Policy (legacy)</a>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-card__name">Voice</div>
+        <div class="app-card__links">
+          <a href="voice/privacy-policy/" class="app-card__link">Privacy Policy</a>
+          <a href="voice/terms-of-service/" class="app-card__link">Terms of Service</a>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-card__name">Multiple</div>
+        <div class="app-card__links">
+          <a href="multiple/privacy-policy/" class="app-card__link">Privacy Policy</a>
+          <a href="multiple/terms-of-service/" class="app-card__link">Terms of Service</a>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-card__name">LazyCat</div>
+        <div class="app-card__links">
+          <a href="pp-lazycat/" class="app-card__link">Privacy Policy</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">&copy; 2025 LazyCat Studios. All rights reserved.</footer>
 </body>
 </html>
