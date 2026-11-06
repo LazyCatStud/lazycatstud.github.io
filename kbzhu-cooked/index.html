@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#183f30">
+    <meta name="description" content="Пересчитайте калории, белки, жиры и углеводы сухого продукта на 100 граммов готового. Простой калькулятор для макарон, риса, гречки и других продуктов.">
+    <title>В меру — КБЖУ после приготовления</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <script src="calculator.js" defer></script>
+  </head>
+  <body>
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+      <symbol id="icon-leaf" viewBox="0 0 24 24"><path d="M19.5 4.5c-8-1-14 3-14 8a6 6 0 0 0 6 6c5 0 9-6 8-14Z"/><path d="m4 21 11-11M9 16v-5m0 5h5"/></symbol>
+      <symbol id="icon-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="12" rx="2"/><path d="M15 9V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h4"/></symbol>
+      <symbol id="icon-reset" viewBox="0 0 24 24"><path d="M3 10a9 9 0 1 1 1 8M3 4v6h6"/></symbol>
+      <symbol id="icon-drop" viewBox="0 0 24 24"><path d="M12 3c-2 4-7 8-7 12a7 7 0 0 0 14 0c0-4-5-8-7-12Z"/><path d="M9 15a3 3 0 0 0 3 3"/></symbol>
+      <symbol id="icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v.1"/></symbol>
+      <symbol id="icon-chevron" viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></symbol>
+      <symbol id="icon-pasta" viewBox="0 0 24 24"><path d="M5 4c-4 4 5 5 1 9s5 5 1 8M12 3c-4 4 5 5 1 9s5 5 1 8M19 2c-4 4 5 5 1 9s5 5 1 8"/></symbol>
+      <symbol id="icon-grain" viewBox="0 0 24 24"><path d="M12 21V7m0 8c-6 1-8-2-8-6 5-1 8 2 8 6Zm0 4c6 0 8-3 8-7-5 0-8 3-8 7Zm0-9c-4-3-3-6 0-9 3 3 4 6 0 9Z"/></symbol>
+    </svg>
+
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="./" aria-label="В меру — на главную">
+          <span class="brand-symbol"><svg class="icon"><use href="#icon-leaf"/></svg></span>
+          <span>в меру<span class="brand-dot">.</span></span>
+        </a>
+        <span class="header-caption">Меньше подсчётов. Больше жизни.</span>
+        <span class="local-badge"><span></span> Работает без интернета</span>
+      </header>
+
+      <main>
+        <noscript><p class="no-script-message">Для расчёта включите JavaScript в браузере. Сейчас показан только пример для макарон.</p></noscript>
+        <section class="hero" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow"><span></span> КАЛЬКУЛЯТОР ГОТОВОГО ПРОДУКТА</p>
+            <h1 id="page-title">Из сухого — <em>в готовое.</em></h1>
+            <p class="hero-description">Макароны набрали воду, а калории? Пересчитайте КБЖУ<br class="desktop-break"> на 100 г готового продукта за пару секунд.</p>
+          </div>
+          <div class="hero-illustration" aria-hidden="true">
+            <svg viewBox="0 0 390 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="235" cy="163" rx="110" ry="12" fill="#e6e8dc"/>
+              <path d="M132 100h200c-6 43-33 65-100 65s-94-22-100-65Z" fill="#e4ebd5" stroke="#335741" stroke-width="2"/>
+              <ellipse cx="232" cy="101" rx="100" ry="23" fill="#f7f7ed" stroke="#335741" stroke-width="2"/>
+              <path d="m166 100 27-22 13 10-26 22-14-10Z" fill="#efd080" stroke="#b99a54" stroke-width="1.4"/>
+              <path d="m187 101 25-23 12 11-24 24-13-12Z" fill="#f3d999" stroke="#b99a54" stroke-width="1.4"/>
+              <path d="m212 103 28-27 12 10-28 28-12-11Z" fill="#efd080" stroke="#b99a54" stroke-width="1.4"/>
+              <path d="m239 103 28-22 12 11-27 22-13-11Z" fill="#f3d999" stroke="#b99a54" stroke-width="1.4"/>
+              <path d="m263 102 26-20 13 11-25 18-14-9Z" fill="#efd080" stroke="#b99a54" stroke-width="1.4"/>
+              <path d="m173 101 25-21m-2 23 22-21m2 22 25-25m3 26 24-20m0 19 21-18" stroke="#c7a65e" stroke-width="1.5"/>
+              <path d="M219 65c-13-13 10-15 1-29m26 28c-13-13 10-15 1-29m23 31c-11-11 8-14 1-24" stroke="#9da88f" stroke-width="2" stroke-linecap="round"/>
+              <path d="M155 128c12 14 34 21 56 24" stroke="#b8c8a7" stroke-width="2" stroke-linecap="round"/>
+              <rect x="14" y="40" width="86" height="57" rx="15" fill="#fffef9" stroke="#d9dece"/>
+              <text x="57" y="66" text-anchor="middle" font-size="19" font-family="system-ui,sans-serif" font-weight="650" fill="#294431">100 г</text>
+              <text x="57" y="84" text-anchor="middle" font-size="10" font-family="system-ui,sans-serif" fill="#7a8273">ДО ВАРКИ</text>
+              <path d="M88 114c8 24 25 35 52 32m-7-7 8 7-6 8" stroke="#788b66" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 4"/>
+              <g transform="translate(281 133) rotate(-7)"><rect width="94" height="42" rx="12" fill="#d7e8b2"/><text x="47" y="27" text-anchor="middle" font-size="19" font-family="system-ui,sans-serif" font-weight="650" fill="#294431">250 г</text></g>
+              <path d="m333 47 4 8 8 1-6 6 1 8-7-4-7 4 1-8-6-6 8-1 4-8Z" fill="#b3c891"/>
+            </svg>
+            <span class="illustration-caption">Вес меняется. Всё считается.</span>
+          </div>
+        </section>
+
+        <div class="calculator-layout">
+          <section class="input-card" aria-label="Исходные данные для расчёта">
+            <div class="card-heading">
+              <h2>Что готовим?</h2>
+              <button class="text-button" type="button" id="reset-form"><svg class="icon"><use href="#icon-reset"/></svg> Сбросить</button>
+            </div>
+            <div class="presets" role="group" aria-label="Примеры для знакомства с калькулятором">
+              <span class="preset-caption">Попробуйте пример</span>
+              <button type="button" class="preset is-active" data-preset="pasta" aria-pressed="true"><svg class="icon"><use href="#icon-pasta"/></svg>Макароны</button>
+              <button type="button" class="preset" data-preset="rice" aria-pressed="false"><svg class="icon"><use href="#icon-grain"/></svg>Рис</button>
+              <button type="button" class="preset" data-preset="buckwheat" aria-pressed="false"><span class="buckwheat-icon" aria-hidden="true">✧</span>Гречка</button>
+            </div>
+            <p class="demo-note">В примерах условные значения. Для своего продукта сверьтесь с упаковкой.</p>
+
+            <form id="calculator-form" novalidate>
+              <fieldset>
+                <legend><span class="step-number">01</span><span>Данные с упаковки</span><span class="section-unit">на 100 г сухого продукта</span></legend>
+                <div class="nutrition-inputs">
+                  <div class="field" data-field="calories">
+                    <label for="calories"><span class="nutrient-dot calorie-dot"></span>Калории</label>
+                    <div class="input-wrap"><input id="calories" name="calories" type="text" inputmode="decimal" autocomplete="off" value="350" placeholder="0" aria-describedby="error-calories"><span>ккал</span></div>
+                    <span class="field-error" id="error-calories"></span>
+                  </div>
+                  <div class="field" data-field="protein">
+                    <label for="protein"><span class="nutrient-dot protein-dot"></span>Белки</label>
+                    <div class="input-wrap"><input id="protein" name="protein" type="text" inputmode="decimal" autocomplete="off" value="12,5" placeholder="0" aria-describedby="error-protein"><span>г</span></div>
+                    <span class="field-error" id="error-protein"></span>
+                  </div>
+                  <div class="field" data-field="fat">
+                    <label for="fat"><span class="nutrient-dot fat-dot"></span>Жиры</label>
+                    <div class="input-wrap"><input id="fat" name="fat" type="text" inputmode="decimal" autocomplete="off" value="1,5" placeholder="0" aria-describedby="error-fat"><span>г</span></div>
+                    <span class="field-error" id="error-fat"></span>
+                  </div>
+                  <div class="field" data-field="carbs">
+                    <label for="carbs"><span class="nutrient-dot carbs-dot"></span>Углеводы</label>
+                    <div class="input-wrap"><input id="carbs" name="carbs" type="text" inputmode="decimal" autocomplete="off" value="72" placeholder="0" aria-describedby="error-carbs"><span>г</span></div>
+                    <span class="field-error" id="error-carbs"></span>
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="weight-section">
+                <legend><span class="step-number">02</span><span>Взвесьте продукт</span></legend>
+                <div class="weight-inputs">
+                  <div class="field weight-field" data-field="raw-weight">
+                    <label for="raw-weight">До приготовления <span>сухой / сырой</span></label>
+                    <div class="input-wrap"><input id="raw-weight" name="raw-weight" type="text" inputmode="decimal" autocomplete="off" value="100" placeholder="Например, 100" aria-describedby="error-raw-weight"><span>г</span></div>
+                    <span class="field-error" id="error-raw-weight"></span>
+                  </div>
+                  <span class="weight-arrow" aria-hidden="true"><svg class="icon"><use href="#icon-arrow"/></svg></span>
+                  <div class="field weight-field" data-field="cooked-weight">
+                    <label for="cooked-weight">После приготовления <span>весь готовый продукт</span></label>
+                    <div class="input-wrap"><input id="cooked-weight" name="cooked-weight" type="text" inputmode="decimal" autocomplete="off" value="250" placeholder="Например, 250" aria-describedby="error-cooked-weight"><span>г</span></div>
+                    <span class="field-error" id="error-cooked-weight"></span>
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="form-bottom">
+                <span class="auto-hint"><span></span> Пересчёт при каждом изменении</span>
+                <button class="calculate-button" type="submit">Рассчитать <svg class="icon"><use href="#icon-arrow"/></svg></button>
+              </div>
+              <p id="calculation-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+            </form>
+          </section>
+
+          <section class="result-card" id="results" data-state="valid" tabindex="-1" aria-labelledby="result-title">
+            <div class="result-topline"><span class="result-eyebrow">МОЖНО ЗАПИСЫВАТЬ</span><span class="result-check" aria-hidden="true">✓</span></div>
+            <h2 id="result-title">В 100 г готового</h2>
+            <p class="result-notice" id="result-notice" hidden></p>
+            <div class="calorie-result"><span id="result-calories">140</span><span class="calorie-unit">ккал</span></div>
+            <div class="macro-results">
+              <div><span class="macro-label"><i class="protein-dot"></i>Белки</span><span class="macro-number"><span id="result-protein">5</span><small>г</small></span></div>
+              <div><span class="macro-label"><i class="fat-dot"></i>Жиры</span><span class="macro-number"><span id="result-fat">0,6</span><small>г</small></span></div>
+              <div><span class="macro-label"><i class="carbs-dot"></i>Углеводы</span><span class="macro-number"><span id="result-carbs">28,8</span><small>г</small></span></div>
+            </div>
+            <div class="weight-change">
+              <span class="water-icon"><svg class="icon"><use href="#icon-drop"/></svg></span>
+              <div><p><span id="factor-label">Вес увеличился</span> <strong id="weight-factor">в 2,5 раза</strong></p><span id="weight-explanation">Вода добавляет вес, но не калории.</span></div>
+            </div>
+            <button class="copy-button" type="button" id="copy-result"><svg class="icon"><use href="#icon-copy"/></svg> Скопировать КБЖУ</button>
+            <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
+            <div class="result-footer"><span id="raw-summary">100 г сухого</span><svg class="icon"><use href="#icon-arrow"/></svg><span id="cooked-summary">250 г готового</span></div>
+          </section>
+        </div>
+
+        <div class="extras-layout">
+          <details class="portion-card">
+            <summary><span><svg class="icon"><use href="#icon-grain"/></svg>Посчитать свою порцию</span><svg class="icon chevron"><use href="#icon-chevron"/></svg></summary>
+            <div class="portion-content">
+              <div class="field" data-field="portion-weight"><label for="portion-weight">Вес готовой порции</label><div class="input-wrap"><input id="portion-weight" type="text" inputmode="decimal" autocomplete="off" value="100" placeholder="150" aria-describedby="error-portion-weight"><span>г</span></div><span class="field-error" id="error-portion-weight"></span></div>
+              <div class="portion-results"><strong><span id="portion-calories">140</span> <small>ккал</small></strong><span>Б <b id="portion-protein">5</b> г <i>·</i> Ж <b id="portion-fat">0,6</b> г <i>·</i> У <b id="portion-carbs">28,8</b> г</span></div>
+            </div>
+          </details>
+          <details class="batch-card">
+            <summary><span>КБЖУ всего блюда</span><svg class="icon chevron"><use href="#icon-chevron"/></svg></summary>
+            <div class="batch-content"><strong><span id="total-calories">350</span> <small>ккал</small></strong><span>Б <b id="total-protein">12,5</b> г <i>·</i> Ж <b id="total-fat">1,5</b> г <i>·</i> У <b id="total-carbs">72</b> г</span></div>
+          </details>
+        </div>
+
+        <section class="explanation" aria-labelledby="explanation-title">
+          <div class="explanation-intro"><span class="info-icon"><svg class="icon"><use href="#icon-info"/></svg></span><div><h2 id="explanation-title">Всё дело в воде</h2><p>При варке продукт впитывает воду и становится тяжелее.<br>То же количество КБЖУ распределяется на больший вес.</p></div></div>
+          <div class="formula"><span>КБЖУ с упаковки</span><span class="formula-operator">×</span><span class="fraction"><span>сухой вес</span><span>готовый вес</span></span><span class="formula-operator">=</span><span class="formula-answer">КБЖУ<br>на 100 г готового</span></div>
+        </section>
+        <p class="cooking-note"><svg class="icon"><use href="#icon-leaf"/></svg>Подходит для приготовления на воде без добавок. Масло, молоко и соусы учитывайте отдельно. Если часть продукта или питательных веществ теряется при готовке, результат будет приблизительным.</p>
+      </main>
+
+      <footer class="site-footer"><span class="footer-brand">в меру.</span><span>Для спокойных отношений с цифрами.</span><span>Без регистрации и отправки данных</span></footer>
+    </div>
+  </body>
+</html>
